@@ -67,7 +67,7 @@ jobs:
 
       - name: Ensure remote rsync
         run: |
-          ssh "${{ secrets.ALIYUN_USER || 'root' }}@${{ secrets.ALIYUN_HOST || '121.89.87.255' }}" '
+          ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=20 "${{ secrets.ALIYUN_USER || 'root' }}@${{ secrets.ALIYUN_HOST || '121.89.87.255' }}" '
             set -euo pipefail
             if command -v rsync >/dev/null 2>&1; then
               exit 0
@@ -87,6 +87,7 @@ jobs:
       - name: Sync frontend sources
         run: |
           rsync -az --delete \
+            -e "ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=20" \
             --exclude '.git' \
             --exclude 'node_modules' \
             --exclude 'dist' \
@@ -98,14 +99,14 @@ jobs:
 
       - name: Rebuild isolated compose stack
         run: |
-          ssh "${{ secrets.ALIYUN_USER || 'root' }}@${{ secrets.ALIYUN_HOST || '121.89.87.255' }}" '
+          ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=20 "${{ secrets.ALIYUN_USER || 'root' }}@${{ secrets.ALIYUN_HOST || '121.89.87.255' }}" '
             set -euo pipefail
             if [ ! -f /opt/stigpt/frontent/.env ] && [ -f /opt/stigpt/frontent/.env.example ]; then
               cp /opt/stigpt/frontent/.env.example /opt/stigpt/frontent/.env
             fi
             cd /opt/stigpt/frontent
             if [ -f .env ]; then
-              docker compose -p stigpt up -d --build
+              docker compose -p stigpt up -d --build admin-portal player-app
               docker compose -p stigpt ps
             else
               echo "Missing /opt/stigpt/frontent/.env"
