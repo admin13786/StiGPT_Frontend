@@ -62,7 +62,8 @@ jobs:
       - name: Trust server host key
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H "${{ secrets.ALIYUN_HOST }}" >> ~/.ssh/known_hosts
+          HOST="${{ secrets.ALIYUN_HOST || '121.89.87.255' }}"
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts
 
       - name: Sync frontend sources
         run: |
@@ -74,11 +75,11 @@ jobs:
             --exclude 'uploads' \
             --exclude '_workspace' \
             --exclude 'references' \
-            ./ "${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:/opt/stigpt/frontent/"
+            ./ "${{ secrets.ALIYUN_USER || 'root' }}@${{ secrets.ALIYUN_HOST || '121.89.87.255' }}:/opt/stigpt/frontent/"
 
       - name: Rebuild isolated compose stack
         run: |
-          ssh "${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}" '
+          ssh "${{ secrets.ALIYUN_USER || 'root' }}@${{ secrets.ALIYUN_HOST || '121.89.87.255' }}" '
             set -euo pipefail
             if [ ! -f /opt/stigpt/frontent/.env ] && [ -f /opt/stigpt/frontent/.env.example ]; then
               cp /opt/stigpt/frontent/.env.example /opt/stigpt/frontent/.env
