@@ -1,0 +1,13 @@
+.urgency-rules-page {
+  padding: 16px;
+}
+
+.urgency-rules-table .ant-table-tbody > tr > td {
+  vertical-align: top;
+}
+
+.urgency-rule-description {
+  max-width: 220px;
+  display: inline-block;
+}
+

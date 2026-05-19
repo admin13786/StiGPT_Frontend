@@ -1,0 +1,13 @@
+.games-page {
+  padding: 16px;
+}
+
+.games-page .ant-table {
+  margin-top: 16px;
+}
+
+.games-page .ant-tag {
+  min-width: 48px;
+  text-align: center;
+}
+

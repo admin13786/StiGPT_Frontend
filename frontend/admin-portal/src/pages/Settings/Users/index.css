@@ -1,0 +1,15 @@
+.users-page {
+  padding: 16px;
+}
+
+.users-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.users-filters .ant-input {
+  max-width: 320px;
+}
+

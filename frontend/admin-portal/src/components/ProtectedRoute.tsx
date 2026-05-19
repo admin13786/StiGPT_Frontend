@@ -1,0 +1,30 @@
+import type { ReactNode } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuthStore } from '../stores/authStore';
+
+interface ProtectedRouteProps {
+  children: ReactNode;
+  requiredRole?: 'ADMIN' | 'AGENT';
+}
+
+const ProtectedRoute = ({ children, requiredRole }: ProtectedRouteProps) => {
+  const { isAuthenticated, user, isAuthReady } = useAuthStore();
+  const fallbackRoute =
+    user?.role === 'ADMIN' ? '/dashboard' : '/workbench/active';
+
+  if (!isAuthReady) {
+    return <div style={{ padding: 40, textAlign: 'center' }}>正在加载...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (requiredRole && user?.role !== requiredRole && user?.role !== 'ADMIN') {
+    return <Navigate to={fallbackRoute} replace />;
+  }
+
+  return <>{children}</>;
+};
+
+export default ProtectedRoute;

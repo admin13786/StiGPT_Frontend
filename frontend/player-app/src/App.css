@@ -1,0 +1,148 @@
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f0f2f5;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 页面容器（用于独立页面如工单提交） */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f0f2f5;
+}
+
+.page-card {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.page-card .ant-card-head {
+  background: transparent;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.page-card .ant-card-head-title {
+  color: #0d1c28;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.page-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+/* 表单样式 */
+.enhanced-form .ant-form-item-label > label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.enhanced-form .ant-btn-primary {
+  background: #0082ee;
+  border: none;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.enhanced-form .ant-btn-primary:hover {
+  background: #006fd6;
+}
+
+.enhanced-form .ant-btn-default {
+  border-radius: 6px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* 加载状态 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #666;
+}
+
+.loading-text {
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 12px;
+  }
+
+  .page-card {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .page-card .ant-card-body {
+    padding: 20px;
+  }
+}

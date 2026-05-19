@@ -1,0 +1,27 @@
+.sessions-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sessions-card {
+  border-radius: 16px;
+}
+
+.sessions-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.sessions-card__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sessions-card__title h4 {
+  margin: 0;
+}

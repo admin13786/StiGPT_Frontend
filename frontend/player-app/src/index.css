@@ -1,0 +1,105 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: #0d1c28;
+
+  /* 主题色 - 蓝色系 */
+  --color-primary: #0082ee;
+  --color-primary-hover: #006fd6;
+  --color-primary-light: #edf5ff;
+  --color-primary-bg: #f0f6ff;
+  --color-text: #0d1c28;
+  --color-text-secondary: #5f6368;
+  --color-text-muted: #8c8c8c;
+  --color-bg: #f0f2f5;
+  --color-bg-white: #ffffff;
+  --color-border: #e8e8e8;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ant Design 全局覆盖 - 蓝色主题 */
+.ant-btn-primary {
+  background: var(--color-primary) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 500;
+  box-shadow: none !important;
+}
+
+.ant-btn-primary:hover {
+  background: var(--color-primary-hover) !important;
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector {
+  border-radius: 6px !important;
+  border-color: var(--color-border) !important;
+}
+
+.ant-input:focus,
+.ant-input-affix-wrapper-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(0, 130, 238, 0.1) !important;
+}
+
+.ant-card {
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+.ant-table {
+  border-radius: 8px;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--color-primary) !important;
+}
+
+.ant-tabs-ink-bar {
+  background: var(--color-primary) !important;
+}
+
+/* 全局滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}

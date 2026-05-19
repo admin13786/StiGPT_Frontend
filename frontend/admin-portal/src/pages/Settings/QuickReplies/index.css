@@ -1,0 +1,139 @@
+.quick-reply-settings {
+  display: flex;
+  height: 100%;
+  background: #fff;
+}
+
+.quick-reply-settings .categories-sidebar {
+  background: #fafafa;
+  border-right: 1px solid #d9d9d9;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.quick-reply-settings .sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-reply-settings .sidebar-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.quick-reply-settings .category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.quick-reply-settings .category-item .count {
+  color: #999;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.quick-reply-settings .ant-list-item.active {
+  background: #e6f7ff;
+  border-left: 3px solid #1890ff;
+  padding-left: 13px !important;
+}
+
+.quick-reply-settings .replies-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.quick-reply-settings .content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.quick-reply-settings .replies-list-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+.quick-reply-settings .replies-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.quick-reply-settings .replies-list-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.quick-reply-settings .replies-list-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.quick-reply-settings .replies-list-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.quick-reply-settings .content-header h2 {
+  margin: 0;
+}
+
+.quick-reply-settings .reply-content {
+  line-height: 1.5;
+  word-break: break-word;
+  max-width: 500px;
+}
+
+.quick-reply-settings .ant-list-item {
+  padding: 12px !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.quick-reply-settings .ant-list-item-meta {
+  margin-top: 8px;
+}
+
+/* 分类选择器样式 */
+.quick-reply-settings .content-header .ant-form-item {
+  margin-bottom: 0;
+}
+
+.quick-reply-settings .content-header .ant-form-item-label {
+  padding-bottom: 0;
+}
+
+.quick-reply-settings .content-header .ant-form-item-label > label {
+  height: auto;
+  font-weight: 500;
+}
+
+/* 搜索框美化 */
+.quick-reply-settings .ant-input-search {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.quick-reply-settings .ant-input-search:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quick-reply-settings .ant-input-search.ant-input-search-large .ant-input {
+  border-radius: 6px 0 0 6px;
+}
+
+.quick-reply-settings .ant-input-search.ant-input-search-large .ant-input-search-button {
+  border-radius: 0 6px 6px 0;
+}

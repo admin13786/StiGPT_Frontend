@@ -1,0 +1,47 @@
+{
+  "name": "stigpt-frontent",
+  "version": "1.0.0",
+  "description": "StiGPT learning clone with AI writing, checking, review, and support pages",
+  "private": true,
+  "scripts": {
+    "db:generate": "cd ../backend && prisma generate",
+    "db:migrate": "cd ../backend && prisma migrate dev",
+    "db:migrate:deploy": "cd ../backend && prisma migrate deploy",
+    "db:migrate:verify": "cd ../backend && node scripts/verify-migration.js",
+    "db:studio": "cd ../backend && prisma studio",
+    "db:seed": "cd ../backend && ts-node prisma/seed.ts",
+    "db:reset": "cd ../backend && prisma migrate reset",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:dev": "docker compose up -d --build",
+    "dev:backend": "cd ../backend && npm run start:dev",
+    "dev:player": "cd frontend/player-app && npm run dev",
+    "dev:admin": "cd frontend/admin-portal && npm run dev",
+    "install:all": "npm install && npm --prefix ../backend install && npm --prefix frontend/player-app install && npm --prefix frontend/admin-portal install"
+  },
+  "keywords": [
+    "ai",
+    "stigpt",
+    "scholarmate",
+    "ai-writing",
+    "ai-review"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "20.19.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1"
+  },
+  "prisma": {
+    "seed": "ts-node ../backend/prisma/seed.ts"
+  }
+}
