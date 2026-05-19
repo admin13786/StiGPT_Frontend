@@ -48,6 +48,8 @@ services:
   # Milvus 向量数据库
   etcd:
     image: quay.io/coreos/etcd:v3.5.5
+    profiles:
+      - rag
     environment:
       - ETCD_AUTO_COMPACTION_MODE=revision
       - ETCD_AUTO_COMPACTION_RETENTION=1000
@@ -67,6 +69,8 @@ services:
 
   minio:
     image: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    profiles:
+      - rag
     environment:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
@@ -84,6 +88,8 @@ services:
 
   milvus:
     image: milvusdb/milvus:v2.3.3
+    profiles:
+      - rag
     command: ["milvus", "run", "standalone"]
     environment:
       ETCD_ENDPOINTS: etcd:2379
@@ -190,8 +196,6 @@ services:
       postgres:
         condition: service_healthy
       redis:
-        condition: service_healthy
-      milvus:
         condition: service_healthy
     networks:
       - game-ai-cs-network
